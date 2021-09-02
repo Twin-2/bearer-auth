@@ -9,3 +9,6 @@ For this whiteboard I wrote out on an actual whiteboard and took pictures of the
 ![lab7b (2)](https://user-images.githubusercontent.com/81482156/130718333-920ac0a6-5c47-4c6d-9277-d63390480ea4.jpeg)
 
 
+## Deploy
+
+[Heroku](https://bearer-auth-practice.herokuapp.com/)
