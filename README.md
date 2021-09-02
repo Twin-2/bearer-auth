@@ -12,3 +12,5 @@ For this whiteboard I wrote out on an actual whiteboard and took pictures of the
 ## Deploy
 
 [Heroku](https://bearer-auth-practice.herokuapp.com/)
+
+URL: https://bearer-auth-practice.herokuapp.com/
