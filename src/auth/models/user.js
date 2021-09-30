@@ -9,6 +9,7 @@ const userSchema = (sequelize, DataTypes) => {
     const model = sequelize.define('User', {
         username: { type: DataTypes.STRING, allowNull: false, unique: true },
         password: { type: DataTypes.STRING, allowNull: false, },
+        capabilities: { type: DataTypes.ENUM('user', 'writer', 'editor', 'admin'), required: true, defaultValue: 'user' },
         token: {
             type: DataTypes.VIRTUAL,
             get() {
