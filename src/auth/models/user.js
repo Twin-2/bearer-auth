@@ -9,10 +9,23 @@ const userSchema = (sequelize, DataTypes) => {
     const model = sequelize.define('User', {
         username: { type: DataTypes.STRING, allowNull: false, unique: true },
         password: { type: DataTypes.STRING, allowNull: false, },
+        role: { type: DataTypes.ENUM('user', 'writer', 'editor', 'admin'), required: true, defaultValue: 'user' },
         token: {
             type: DataTypes.VIRTUAL,
             get() {
                 return jwt.sign({ username: this.username }, process.env.API_SECRET);
+            }
+        },
+        capabilities: {
+            type: DataTypes.VIRTUAL,
+            get() {
+                const acl = {
+                    user: ['read'],
+                    writer: ['read', 'create'],
+                    editor: ['read', 'create', 'update'],
+                    admin: ['read', 'create', 'update', 'delete']
+                };
+                return acl[this.role];
             }
         }
     });
